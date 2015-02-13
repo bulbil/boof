@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-.word {
+.word, .footer {
     font-family: Georgia, Garamond, "Times New Roman", serif;
     font-style: italic;
     font-weight: 600;
@@ -21,6 +21,14 @@ body {
     margin-left: 50px;
     margin-top: 15px;
     color: #fff;
+}
+
+.footer { 
+
+    position: fixed;
+    bottom: 0;
+    right: 25;
+    color: #00Fd00; 
 }
 
 #two .word:first-child { margin-top: 35%;}
