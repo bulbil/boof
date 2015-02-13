@@ -73,7 +73,7 @@ function update() {
     requestAnimationFrame( update );
 
     var timer = Date.now() * 0.001;
-    crystalMesh.rotation.y -= 0.002;
+    // crystalMesh.rotation.y -= 0.002;
     crystalMesh.rotation.y = ( Math.PI / 2 ) - timer * 0.5;
     crystalMesh.rotation.z = timer * 0.1;
 
