@@ -83,12 +83,6 @@ function update() {
 
 function draw(){
     
-    var plane = new THREE.PlaneBufferGeometry( 100, 100 );
-    groundMirror = new THREE.Mirror( renderer, camera, {clipBias: 0.003, textureWidth: WIDTH/4, textureHeight: HEIGHT/4, color: 0xdddddd } );
-    
-    var mirrorMesh = new THREE.Mesh( plane, groundMirror.material );
-    mirrorMesh.add( groundMirror );
-    scene.add( mirrorMesh );
 
     // loader for Collada dae file
     // loader = new THREE.ColladaLoader();
@@ -122,6 +116,13 @@ function draw(){
         crystalMesh.position.y = 8;
         crystalMesh.position.z = 15;
         crystalMesh.updateMatrix();
+
+        plane = new THREE.PlaneBufferGeometry( 100, 100 );
+        groundMirror = new THREE.Mirror( renderer, camera, {clipBias: 0.003, textureWidth: WIDTH/4, textureHeight: HEIGHT/4, color: 0xdddddd } );
+        
+        mirrorMesh = new THREE.Mesh( plane, groundMirror.material );
+        mirrorMesh.add( groundMirror );
+        scene.add( mirrorMesh );
 
         scene.add(crystalMesh);
         update();
