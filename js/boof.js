@@ -126,6 +126,8 @@ function draw(){
         crystalMesh.updateMatrix();
 
         scene.add(crystalMesh);
+        update();
+
     }); 
 }
 
@@ -133,7 +135,6 @@ $(function(){
 
     init();
     draw();
-    update();
 
     $(window).scroll(function(){
         
