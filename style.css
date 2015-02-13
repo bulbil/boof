@@ -23,21 +23,19 @@ body {
     color: #fff;
 }
 
-.footer {
-    width: 100%;
+.footer a {
+    /*display: none;*/
+    position: fixed;
+    bottom: 0;
+    right: 0;
     height: 100px;
-    padding: 1em;
-}
-
-.footer a{ 
-
+    width: 100px;
+    z-index: 9 !important;
     font-family: Georgia, Garamond, "Times New Roman", serif;
     font-style: italic;
-    float: right;
     color: #000;
     font-weight: 600;
     font-size: 100px;    
-    z-index: 9 !important;
     padding: 1em;
 }
 

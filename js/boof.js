@@ -130,4 +130,20 @@ $(function(){
     init();
     draw();
 
+    $(window).scroll(function(){
+        
+        if($(this).scrollTop() > 1000) {
+            $('.footer a').fadeIn();
+        } else {
+            $('.footer a').fadeOut();
+        }
+    });
+
+    $('.footer a').on('click', function(){
+
+        $('body').animate({scrollTop: 0}, 1000);
+        return false;
+    });
+    
+
 });
