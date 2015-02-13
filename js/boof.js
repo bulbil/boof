@@ -129,11 +129,11 @@ function draw(){
         crystalMesh = localObject;
         
         scene.add(crystalMesh);
-        return crystalMesh;
+        update();
     }
 
     loader = new THREE.JSONLoader();
-    loader.load(crystalJSON, function(geometry, crystalMaterial){
+    loader.load('js/crystal.js', function(geometry, crystalMaterial){
 	   loadCrystal(geometry, crystalMaterial);
     }); 
 }
