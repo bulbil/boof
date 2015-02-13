@@ -66,6 +66,8 @@ function init(){
     controls.minDistance = 0;
     controls.update();
     $('#container').append(renderer.domElement);
+
+    draw();
 }
 
 function update() {
@@ -128,14 +130,13 @@ function draw(){
 
     loader = new THREE.JSONLoader();
     loader.load('js/crystal.js', function(geometry, crystalMaterial){
-	loadCrystal(geometry, crystalMaterial);
+	   loadCrystal(geometry, crystalMaterial);
     }); 
 }
 
 $(function(){
 
     init();
-    draw();
     update();
 
     $(window).scroll(function(){
