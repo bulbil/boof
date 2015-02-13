@@ -115,7 +115,7 @@ function draw(){
         crystalMesh.scale.z = 10;
         crystalMesh.position.x = 0;
         crystalMesh.position.y = 8;
-        crystalMesh.position.z = 15;
+        crystalMesh.position.z = 7;
         crystalMesh.updateMatrix();
 
         plane = new THREE.PlaneBufferGeometry( 100, 100 );
