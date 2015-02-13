@@ -109,7 +109,7 @@ function draw(){
             shininess: 100
         });
         material.transparent = true;
-        material.opacity = 0.8;
+        material.opacity = 0.6;
         
         crystalMesh = new THREE.Mesh(geometry, material);
         crystalMesh.scale.x = 10;
