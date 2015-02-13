@@ -22,7 +22,7 @@ var FAR = 500;
 
 var camera, renderer, controls,
 light, light1, light2, crystalMesh,
-groundMirror, verticalMirror;
+groundMirror, crystalMaterial;
 
 
 function init(){
@@ -59,6 +59,7 @@ function init(){
         camera.updateProjectionMatrix();
     });
 
+    // Orbit Controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set( 0, 10, 0);
     controls.maxDistance = 50;
@@ -71,7 +72,7 @@ function update() {
 
     requestAnimationFrame( update );
     var timer = Date.now() * 0.001;
-    
+ 
     crystalMesh.rotation.y -= 0.002;
     crystalMesh.rotation.y = ( Math.PI / 2 ) - timer * 0.5;
     crystalMesh.rotation.z = timer * 0.1;
@@ -102,33 +103,37 @@ function draw(){
     // });
 
     // loader -- for blender outputted json file
-    loader = new THREE.JSONLoader();
-    loader.load('js/crystal.js', function(geometry){
-        material = new THREE.MeshPhongMaterial({
-            color: 0xdddddd,
-            shininess: 100
-        });
-        material.transparent = true;
-        material.opacity = 0.6;
-        
-        crystalMesh = new THREE.Mesh(geometry, material);
-        crystalMesh.scale.x = 10;
-        crystalMesh.scale.y = 10;
-        crystalMesh.scale.z = 10;
-        crystalMesh.position.x = 0;
-        crystalMesh.position.y = 8;
-        crystalMesh.position.z = 1;
-        crystalMesh.updateMatrix();
-        scene.add(crystalMesh);
-        update();
+    crystalMaterial = new THREE.MeshPhongMaterial({
+        color: 0xdddddd,
+        shininess: 100
     });
+    crystalMaterial.transparent = true;
+    crystalMaterial.opacity = 0.5;
+    
+    function loadCrystal(geometry, material){
+        
+        d= new THREE.Mesh(geometry, material);
+        material.scale.x = 10;
+        material.scale.y = 10;
+        material.scale.z = 10;
+        material.position.x = 0;
+        material.position.y = 8;
+        material.position.z = 15;
+        material.updateMatrix();
+        scene.add(material);
+    }
 
+    loader = new THREE.JSONLoader();
+    loader.load('js/crystal.js', function(geometry, crystalMaterial){
+	loadCrystal(geometry, crystalMaterial);
+    }); 
 }
 
 $(function(){
 
     init();
     draw();
+    update();
 
     $(window).scroll(function(){
         
