@@ -70,7 +70,7 @@ function init(){
 
 function update() {
 
-    requestAnimationFrame( update );
+    // requestAnimationFrame( update );
     var timer = Date.now() * 0.001;
  
     if(crystalMesh){
