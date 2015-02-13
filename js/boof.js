@@ -70,7 +70,7 @@ function init(){
     draw();
 }
 
-function update() {
+function update(crystalMesh) {
 
     requestAnimationFrame( update );
     var timer = Date.now() * 0.001;
@@ -129,7 +129,7 @@ function draw(){
         crystalMesh = localObject;
         
         scene.add(crystalMesh);
-        update();
+        update(crystalMesh);
     }
 
     loader = new THREE.JSONLoader();
