@@ -78,6 +78,7 @@ function update() {
     crystalMesh.rotation.z = timer * 0.1;
 
     controls.update();
+    mirrorMesh.render();
     renderer.render(scene, camera);
 }
 
