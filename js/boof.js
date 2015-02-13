@@ -80,7 +80,7 @@ function update() {
     crystalMesh.rotation.z = timer * 0.1;
 
     controls.update();
-    groundMirror.render();
+    // groundMirror.render();
     renderer.render(scene, camera);
     console.log('3');
     // }
