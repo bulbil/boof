@@ -125,9 +125,10 @@ function draw(){
         localObject.position.y = 8;
         localObject.position.z = 15;
         localObject.updateMatrix();
-        scene.add(localObject);
 
         crystalMesh = localObject;
+        
+        scene.add(crystalMesh);
         return crystalMesh;
     }
 
