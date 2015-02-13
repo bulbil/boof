@@ -72,15 +72,17 @@ function update() {
 
     requestAnimationFrame( update );
     var timer = Date.now() * 0.001;
- 
+    console.log('1');
     // if(crystalMesh){
     crystalMesh.rotation.y -= 0.002;
+    console.log('2');
     crystalMesh.rotation.y = ( Math.PI / 2 ) - timer * 0.5;
     crystalMesh.rotation.z = timer * 0.1;
 
     controls.update();
     groundMirror.render();
     renderer.render(scene, camera);
+    console.log('3');
     // }
 }
 
