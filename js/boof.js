@@ -77,11 +77,11 @@ function update() {
         crystalMesh.rotation.y -= 0.002;
         crystalMesh.rotation.y = ( Math.PI / 2 ) - timer * 0.5;
         crystalMesh.rotation.z = timer * 0.1;
-    }
 
-    controls.update();
-    groundMirror.render();
-    renderer.render(scene, camera);
+        controls.update();
+        groundMirror.render();
+        renderer.render(scene, camera);
+    }
 }
 
 function draw(){
