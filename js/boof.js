@@ -66,8 +66,6 @@ function init(){
     controls.minDistance = 0;
     controls.update();
     $('#container').append(renderer.domElement);
-
-    draw();
 }
 
 function update(crystalMesh) {
@@ -115,32 +113,28 @@ function draw(){
     crystalMaterial.transparent = true;
     crystalMaterial.opacity = 0.5;
     
-    function loadCrystal(geometry, material){
-        
-        var localObject = new THREE.Mesh(geometry, material);
-        localObject.scale.x = 10;
-        localObject.scale.y = 10;
-        localObject.scale.z = 10;
-        localObject.position.x = 0;
-        localObject.position.y = 8;
-        localObject.position.z = 15;
-        localObject.updateMatrix();
-
-        crystalMesh = localObject;
-        
-        scene.add(crystalMesh);
-        update(crystalMesh);
-    }
-
     loader = new THREE.JSONLoader();
     loader.load('js/crystal.js', function(geometry, crystalMaterial){
-	   loadCrystal(geometry, crystalMaterial);
+
+        crystalMesh = new THREE.Mesh(geometry, crystalMaterial);
+        crystalMesh.scale.x = 10;
+        crystalMesh.scale.y = 10;
+        crystalMesh.scale.z = 10;
+        crystalMesh.position.x = 0;
+        crystalMesh.position.y = 8;
+        crystalMesh.position.z = 15;
+        crystalMesh.updateMatrix();
+
+        scene.add(crystalMesh);
     }); 
 }
 
 $(function(){
 
     init();
+    draw();
+    update();
+    
     $(window).scroll(function(){
         
         if($(this).scrollTop() > 1000) {
