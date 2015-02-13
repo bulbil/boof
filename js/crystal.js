@@ -1,4 +1,4 @@
-{
+crystalJSON = {
 
 	"metadata" :
 	{
@@ -73,4 +73,4 @@
   "animations" : []
 
 
-}
+};
