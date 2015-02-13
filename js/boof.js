@@ -132,7 +132,7 @@ function draw(){
     }
 
     loader = new THREE.JSONLoader();
-    loader.load('js/crystal.js', function(geometry, crystalMaterial){
+    loader.load('http://nabilk.com/js/crystal.js', function(geometry, crystalMaterial){
 	   loadCrystal(geometry, crystalMaterial);
     }); 
 }
