@@ -103,15 +103,16 @@ function draw(){
     // });
 
     // loader -- for blender outputted json file
-    crystalMaterial = new THREE.MeshPhongMaterial({
-        color: 0xdddddd,
-        shininess: 100
-    });
-    crystalMaterial.transparent = true;
-    crystalMaterial.opacity = 0.5;
     
     loader = new THREE.JSONLoader();
-    loader.load('js/crystal.js', function(geometry, crystalMaterial){
+    loader.load('js/crystal.js', function(geometry){
+
+        crystalMaterial = new THREE.MeshPhongMaterial({
+            color: 0xdddddd,
+            shininess: 100
+        });
+        crystalMaterial.transparent = true;
+        crystalMaterial.opacity = 0.5;
 
         crystalMesh = new THREE.Mesh(geometry, crystalMaterial);
         crystalMesh.scale.x = 10;
