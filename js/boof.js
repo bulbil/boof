@@ -141,8 +141,6 @@ function draw(){
 $(function(){
 
     init();
-    update();
-
     $(window).scroll(function(){
         
         if($(this).scrollTop() > 1000) {
