@@ -117,15 +117,18 @@ function draw(){
     
     function loadCrystal(geometry, material){
         
-        crystalMesh = new THREE.Mesh(geometry, material);
-        crystalMesh.scale.x = 10;
-        crystalMesh.scale.y = 10;
-        crystalMesh.scale.z = 10;
-        crystalMesh.position.x = 0;
-        crystalMesh.position.y = 8;
-        crystalMesh.position.z = 15;
-        crystalMesh.updateMatrix();
-        scene.add(crystalMesh);
+        var localObject = new THREE.Mesh(geometry, material);
+        localObject.scale.x = 10;
+        localObject.scale.y = 10;
+        localObject.scale.z = 10;
+        localObject.position.x = 0;
+        localObject.position.y = 8;
+        localObject.position.z = 15;
+        localObject.updateMatrix();
+        scene.add(localObject);
+
+        crystalMesh = localObject;
+        return crystalMesh;
     }
 
     loader = new THREE.JSONLoader();
