@@ -43,7 +43,9 @@ body {
     color: #dfd;
 }
 
-#two .word:first-child { margin-top: 35%;}
+#two .word:first-child { 
+    margin-top: 35%;
+}
 
 #container { z-index: 5 !important;}
 
@@ -58,6 +60,13 @@ body {
     background-image: repeating-linear-gradient(45deg, #f0 -10px, #0f0 5px);
     opacity: .5;
     z-index: -1 !important;
+}
+
+.boof div#one .word {
+    -o-transition: opacity 1.5s;
+    -moz-transition: opacity 1.5s;
+    -webkit-transition: opacity 1.5s;
+    transition: opacity 1.5s;
 }
 
 .boof div#two {

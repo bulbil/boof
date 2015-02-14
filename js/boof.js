@@ -138,7 +138,29 @@ $(function(){
 
     $(window).scroll(function(){
         
-        if($(this).scrollTop() > 1000) {
+        var top = $(this).scrollTop();
+
+        console.log(0.5 * HEIGHT);
+        console.log(top);
+        
+
+        function hideShowOnScroll( el, heightRatio ) {
+
+            if( $(this).scrollTop() > heightRatio * HEIGHT ) {
+                el.css('opacity', '0');
+            } else if( $(this).scrollTop() < heightRatio * HEIGHT ) {
+                el.css('opacity', '1');
+            }
+
+        }
+
+        hideShowOnScroll($('#one .word#1'), 0.50);
+        hideShowOnScroll($('#one .word#2'), 0.35);
+        hideShowOnScroll($('#one .word#3'), 0.15);
+
+        
+        if( $(this).scrollTop() > 1000) {
+
             $('.footer a').fadeIn();
         } else {
             $('.footer a').fadeOut();
