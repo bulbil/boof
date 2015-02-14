@@ -157,7 +157,6 @@ $(function(){
         hideShowOnScroll($('#one .word#1'), 0.50);
         hideShowOnScroll($('#one .word#2'), 0.35);
         hideShowOnScroll($('#one .word#3'), 0.15);
-
         
         if( $(this).scrollTop() > 1000) {
 
@@ -165,6 +164,14 @@ $(function(){
         } else {
             $('.footer a').fadeOut();
         }
+
+        // if($(this.scrollTop) > 4.5 * HEIGHT){
+
+        //     var lineNum = (Math.random() * 7) + 1;
+        //     var wordNum = (Math.random() * 3) + 1;
+            
+        // }
+
     });
 
     $('.footer a').on('click', function(){

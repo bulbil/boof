@@ -63,10 +63,10 @@ body {
 }
 
 .boof div#one .word {
-    -o-transition: opacity 1.5s;
-    -moz-transition: opacity 1.5s;
-    -webkit-transition: opacity 1.5s;
-    transition: opacity 1.5s;
+    -o-transition: opacity 3s;
+    -moz-transition: opacity 3s;
+    -webkit-transition: opacity 3s;
+    transition: opacity 3s;
 }
 
 .boof div#two {
