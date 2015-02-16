@@ -125,10 +125,11 @@ canvas {
 }
 
 #three {
-    background-image: -webkit-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
-    background-image: -moz-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
-    background-image: -o-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
-    background-image: repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
+
+    background-image: -webkit-repeating-linear-gradient(-135deg, transparent, #8CC7C2 10px, #E8E13C 10px, #E8E13C 20px);
+    background-image: -moz-repeating-linear-gradient(-135deg, transparent, #8CC7C2 10px, #E8E13C 10px, #E8E13C 20px);
+    background-image: -o-repeating-linear-gradient(-135deg, transparent, #8CC7C2 10px, #E8E13C 10px, #E8E13C 20px);
+    background-image: repeating-linear-gradient(-135deg, transparent, #8CC7C2 10px, #E8E13C 10px, #E8E13C 20px);
 }
 
 #four {
