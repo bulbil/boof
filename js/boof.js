@@ -39,7 +39,7 @@ function init(){
 
     // camera
     camera = new THREE.PerspectiveCamera(30, aspect, 1, 1000);
-    camera.position.set(-50,-10,20);
+    camera.position.set(-60,20,20);
     scene.add(camera);
 
     // light
