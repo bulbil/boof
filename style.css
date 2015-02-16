@@ -119,7 +119,7 @@ canvas {
 #two {
     background-image: -webkit-repeating-linear-gradient(135deg, #F37736 -5px, #F37736 5px, #1FB25A 5px, #1FB25A 10px);
     background-image: -moz-repeating-linear-gradient(135deg, #F37736 -5px, #F37736 5px, #1FB25A 5px, #1FB25A 10px);
-    background-image: o-repeating-linear-gradient(135deg, #F37736 -5px, #F37736 5px, #1FB25A 5px, #1FB25A 10px);
+    background-image: -o-repeating-linear-gradient(135deg, #F37736 -5px, #F37736 5px, #1FB25A 5px, #1FB25A 10px);
     background-image: repeating-linear-gradient(135deg, #F37736 -5px, #F37736 5px, #1FB25A 5px, #1FB25A 10px);
     opacity: .4;
 }
