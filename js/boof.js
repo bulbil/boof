@@ -21,8 +21,10 @@ var NEAR = 1;
 var FAR = 500;
 
 var camera, renderer, controls,
-light, light1, light2, crystalMesh,
-groundMirror, crystalMaterial;
+light, light1, light2,
+groundMirror, crystalMaterial,
+crystalMesh1, crystalMesh2, crystalMesh3;
+var crystals = [crystalMesh1, crystalMesh2, crystalMesh3];
 
 
 function init(){
@@ -37,7 +39,7 @@ function init(){
 
     // camera
     camera = new THREE.PerspectiveCamera(30, aspect, 1, 1000);
-    camera.position.set(-50,5,8);
+    camera.position.set(-50,-10,20);
     scene.add(camera);
 
     // light
@@ -62,10 +64,19 @@ function init(){
     // Orbit Controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set( 0, 10, 0);
-    controls.maxDistance = 50;
+    controls.maxDistance = 100;
     controls.minDistance = 0;
     controls.update();
     $('#container').append(renderer.domElement);
+
+
+    // mirror
+    plane = new THREE.PlaneBufferGeometry( 100, 100 );
+    groundMirror = new THREE.Mirror( renderer, camera, {clipBias: 0.003, textureWidth: WIDTH/4, textureHeight: HEIGHT/4, color: 0xdddddd } );
+    
+    mirrorMesh = new THREE.Mesh( plane, groundMirror.material );
+    mirrorMesh.add( groundMirror );
+    scene.add( mirrorMesh );
 }
 
 function update() {
@@ -73,13 +84,34 @@ function update() {
     requestAnimationFrame( update );
 
     var timer = Date.now() * 0.001;
-    crystalMesh.rotation.y -= 0.002;
-    crystalMesh.rotation.y = ( Math.PI / 2 ) - timer * 0.5;
-    crystalMesh.rotation.z = timer * 0.1;
+    var a,b,c;
+    for(var i in crystals){
+        
+        if(i == 0){
+                a = 0.002;
+                b = ( Math.PI / 2 ) - timer * 0.5;
+                c = timer * 0.1;
+        }else if(i == 1){
+                a = 0.005;
+                b = ( Math.PI / 2 ) + (timer * 0.5);
+                c = -(timer * 0.1) * 2;
+        }else if(i == 2){
+                a = 0.01;
+                b = ( Math.PI / 2 ) - timer * 0.5;
+                c = timer * 1;
+        }
+        // a = 0.002;
+        // b = (( Math.PI / 2 ) - timer * 0.5);
+        // c = timer * 0.1;
 
-    controls.update();
-    groundMirror.render();
-    renderer.render(scene, camera);
+        crystals[i].rotation.y -= a;
+        crystals[i].rotation.x = b;
+        crystals[i].rotation.y = b;
+        crystals[i].rotation.z = c;
+        controls.update();
+        groundMirror.render();
+        renderer.render(scene, camera);
+    }
 }
 
 function draw(){
@@ -107,27 +139,21 @@ function draw(){
             shininess: 100
         });
         crystalMaterial.transparent = true;
-        crystalMaterial.opacity = 0.5;
+        crystalMaterial.opacity = 0.8;
 
-        crystalMesh = new THREE.Mesh(geometry, crystalMaterial);
-        crystalMesh.scale.x = 10;
-        crystalMesh.scale.y = 10;
-        crystalMesh.scale.z = 10;
-        crystalMesh.position.x = 0;
-        crystalMesh.position.y = 8;
-        crystalMesh.position.z = 7;
-        crystalMesh.updateMatrix();
-
-        plane = new THREE.PlaneBufferGeometry( 100, 100 );
-        groundMirror = new THREE.Mirror( renderer, camera, {clipBias: 0.003, textureWidth: WIDTH/4, textureHeight: HEIGHT/4, color: 0xdddddd } );
-        
-        mirrorMesh = new THREE.Mesh( plane, groundMirror.material );
-        mirrorMesh.add( groundMirror );
-        scene.add( mirrorMesh );
-
-        scene.add(crystalMesh);
+        for (var i in crystals){
+            crystals[i] = new THREE.Mesh(geometry, crystalMaterial);
+            crystals[i].scale.x = 10;
+            crystals[i].scale.y = 10;
+            crystals[i].scale.z = 10;
+            crystals[i].position.x = i * 50;
+            crystals[i].position.y = i * 10;
+            crystals[i].position.z = i * 10;
+            crystals[i].updateMatrix();
+            scene.add(crystals[i]);
+        }
         update();
-    }); 
+    });
 }
 
 $(function(){
@@ -140,38 +166,28 @@ $(function(){
         
         var top = $(this).scrollTop();
 
-        console.log(0.5 * HEIGHT);
-        console.log(top);
-        
+        function hideShowOnScroll( el, heightRatio, opacityToggle) {
 
-        function hideShowOnScroll( el, heightRatio ) {
-
-            if( $(this).scrollTop() > heightRatio * HEIGHT ) {
-                el.css('opacity', '0');
-            } else if( $(this).scrollTop() < heightRatio * HEIGHT ) {
-                el.css('opacity', '1');
+            if( top > (heightRatio * HEIGHT) ) {
+                el.css('opacity', opacityToggle + 0);
+            } else if( top < (heightRatio * HEIGHT) ) {
+                el.css('opacity', !opacityToggle + 0);
             }
-
         }
-
-        hideShowOnScroll($('#one .word#1'), 0.50);
-        hideShowOnScroll($('#one .word#2'), 0.35);
-        hideShowOnScroll($('#one .word#3'), 0.15);
         
-        if( $(this).scrollTop() > 1000) {
+        hideShowOnScroll($('#one .word#1'), 0.50, false);
+        hideShowOnScroll($('#one .word#2'), 0.35, false);
+        hideShowOnScroll($('#one .word#3'), 0.15, false);
+        hideShowOnScroll($('.footer a'), 1.5, true);
 
-            $('.footer a').fadeIn();
-        } else {
-            $('.footer a').fadeOut();
+        var lineNum = Math.floor((Math.random() * 7) + 1);
+        var wordNum = Math.floor((Math.random() * 3) + 1);
+        var word = $('#four .word#' + lineNum + ' span:nth-child(' + wordNum + ')');
+        var opacity = (word.css('opacity') == 1) ? 0 : 1;
+
+        if(top > (2 * HEIGHT)) {
+            word.css('opacity', opacity);
         }
-
-        // if($(this.scrollTop) > 4.5 * HEIGHT){
-
-        //     var lineNum = (Math.random() * 7) + 1;
-        //     var wordNum = (Math.random() * 3) + 1;
-            
-        // }
-
     });
 
     $('.footer a').on('click', function(){
@@ -180,5 +196,4 @@ $(function(){
         return false;
     });
     
-
 });
