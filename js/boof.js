@@ -39,7 +39,12 @@ function init(){
 
     // camera
     camera = new THREE.PerspectiveCamera(30, aspect, 1, 1000);
-    camera.position.set(-60,20,20);
+
+    if( WIDTH < 481 ) {
+        camera.position.set(-51,6,-38);
+    } else {
+        camera.position.set(-60,20,20);
+    }
     // camera.position.set(0,0,0);
     scene.add(camera);
 
