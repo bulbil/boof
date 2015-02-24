@@ -21,6 +21,7 @@ body, html {
     font-size: 100px;
 }
 
+/*container for the mobile sized content*/
 #phone-message {
     display: none;
 }
@@ -31,6 +32,9 @@ body, html {
     width: 100%;
     height: 100px;
     opacity: .7;
+    background-image: -webkit-repeating-linear-gradient(-30deg, #4551bd, #4551bd 25px, #8bd3a3 25px, #8bd3a3 35px);
+    background-image: -moz-repeating-linear-gradient(-30deg, #4551bd, #4551bd 25px, #8bd3a3 25px, #8bd3a3 35px);
+    background-image: -o-repeating-linear-gradient(-30deg, #4551bd, #4551bd 25px, #8bd3a3 25px, #8bd3a3 35px);
     background-image: repeating-linear-gradient(-30deg, #4551bd, #4551bd 25px, #8bd3a3 25px, #8bd3a3 35px);
     z-index: 9 !important;
 }
@@ -48,14 +52,6 @@ body, html {
 
 canvas {     
     opacity: .5;
-}
-
-.quiet-view {
-    background-image: -webkit-linear-gradient(-90deg, #4551bd, #fff 25%);
-    background-image: -moz-linear-gradient(-90deg, #4551bd, #fff 25%);
-    background-image: -o-linear-gradient(-90deg, #4551bd, #fff 25%);
-    background-image: linear-gradient(-90deg, #4551bd, #fff 25%);
-    z-index: 5 !important;
 }
 
 #layer {
@@ -76,33 +72,34 @@ canvas {
 }
 
 .stripes:nth-child(6){
+    background-image: -webkit-repeating-linear-gradient(-115deg, transparent, transparent 100px, #E8E13C 100px, #E8E13C 110px);
+    background-image: -moz-repeating-linear-gradient(-115deg, transparent, transparent 100px, #E8E13C 100px, #E8E13C 110px);
+    background-image: -o-repeating-linear-gradient(-115deg, transparent, transparent 100px, #E8E13C 100px, #E8E13C 110px);
     background-image: repeating-linear-gradient(-115deg, transparent, transparent 100px, #E8E13C 100px, #E8E13C 110px);
 }
 
 .stripes:nth-child(4){
+    background-image: -webkit-repeating-linear-gradient(115deg, transparent, transparent 100px, #77c1e8 100px, #77c1e8 110px);
+    background-image: -moz-repeating-linear-gradient(115deg, transparent, transparent 100px, #77c1e8 100px, #77c1e8 110px);
+    background-image: -o-repeating-linear-gradient(115deg, transparent, transparent 100px, #77c1e8 100px, #77c1e8 110px);
     background-image: repeating-linear-gradient(115deg, transparent, transparent 100px, #77c1e8 100px, #77c1e8 110px);
 }
 
 .stripes:nth-child(5){
+    background-image: -webkit-repeating-linear-gradient(135deg, #e965a1 -5px, #e965a1 5px, #1FB25A 5px, #1FB25A 10px);
+    background-image: -moz-repeating-linear-gradient(135deg, #e965a1 -5px, #e965a1 5px, #1FB25A 5px, #1FB25A 10px);
+    background-image: -o-repeating-linear-gradient(135deg, #e965a1 -5px, #e965a1 5px, #1FB25A 5px, #1FB25A 10px);
     background-image: repeating-linear-gradient(135deg, #e965a1 -5px, #e965a1 5px, #1FB25A 5px, #1FB25A 10px);
     opacity: .4;
 }
 
 .stripes#quiet-view{
     display: none;
+    background-image: -webkit-repeating-linear-gradient(-30deg, #8bd3a3, #8bd3a3 25px, #e965a1 25px, #e965a1 50px);
+    background-image: -moz-repeating-linear-gradient(-30deg, #8bd3a3, #8bd3a3 25px, #e965a1 25px, #e965a1 50px);
+    background-image: -o-repeating-linear-gradient(-30deg, #8bd3a3, #8bd3a3 25px, #e965a1 25px, #e965a1 50px);
     background-image: repeating-linear-gradient(-30deg, #8bd3a3, #8bd3a3 25px, #e965a1 25px, #e965a1 50px);
     opacity: .4;
-}
-
-#floater {
-    display: none;
-    position: fixed;
-    width: 33%;
-    height: 33%;
-    top: 33%;
-    left: 33%;
-    background-image: repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
-    opacity: .7;   
 }
 
 #footer{
@@ -120,6 +117,30 @@ canvas {
     color: #8bd3a3;
 }
 
+/*styles when caret is clicked*/
+.quiet-view {
+    background-image: -webkit-linear-gradient(-90deg, #4551bd, #fff 25%);
+    background-image: -moz-linear-gradient(-90deg, #4551bd, #fff 25%);
+    background-image: -o-linear-gradient(-90deg, #4551bd, #fff 25%);
+    background-image: linear-gradient(-90deg, #4551bd, #fff 25%);
+    z-index: 5 !important;
+}
+
+#floater {
+    display: none;
+    position: fixed;
+    width: 33%;
+    height: 33%;
+    top: 33%;
+    left: 33%;
+    background-image: -webkit-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
+    background-image: -moz-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
+    background-image: -o-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
+    background-image: repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
+    opacity: .7;   
+}
+
+/*styles for the mobile phone view*/
 @media screen and (max-width: 768px){
     #top-container, #bottom-container,
     .stripes, #footer, #layer {
