@@ -92,7 +92,6 @@ function update() {
 
     var timer = Date.now() * 0.001;
     var timeIncrement = ( WIDTH < 481 || isQuietView === true ) ? 0.3 : 0.9;
-    console.log(timeIncrement);
     crystals[0].rotation.x = 0.002;
     crystals[0].rotation.y = ( Math.PI / 2 ) - (timer * timeIncrement);
     crystals[0].rotation.z = timer * timeIncrement;
@@ -205,8 +204,6 @@ $(function(){
         $('#container').toggleClass('quiet-view');
 
         isQuietView = !isQuietView;
-        console.log(isQuietView);
-        
     });
     
 });
