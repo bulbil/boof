@@ -135,6 +135,8 @@ canvas {
     opacity: .7;   
 }
 
+#phone-message { display: none; }
+
 /*styles for the mobile phone view*/
 @media only screen and (max-width: 768px){
     #top-container, #bottom-container,
@@ -144,11 +146,13 @@ canvas {
 
     #phone-message{
         display: block;
+        position: fixed;
+        top: 15px;
         width: 33%;
         margin-left: auto;
         margin-right: auto;
     }
     canvas{
-        opacity: 1;
+        opacity: .5;
     }
 }
