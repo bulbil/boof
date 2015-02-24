@@ -203,9 +203,10 @@ $(function(){
         
         $('#top-container').toggle();
         $('#bottom-container').toggle();
-        $('#gradient').toggle();
+        $('#layer').toggle();
         $('.stripes').toggle();
         $('#floater').toggle();
+        $('#container').toggleClass('quiet-view');
         
     });
     
