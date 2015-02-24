@@ -40,6 +40,7 @@ function init(){
     // camera
     camera = new THREE.PerspectiveCamera(30, aspect, 1, 1000);
     camera.position.set(-60,20,20);
+    // camera.position.set(0,0,0);
     scene.add(camera);
 
     // light
@@ -64,7 +65,7 @@ function init(){
     // Orbit Controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set( 0, 10, 0);
-    controls.maxDistance = 250;
+    controls.maxDistance = 200;
     controls.minDistance = 0;
     controls.update();
     $('#container').append(renderer.domElement);
@@ -85,33 +86,22 @@ function update() {
 
     var timer = Date.now() * 0.001;
     var a,b,c;
-    for(var i in crystals){
-        
-        if(i === 0){
-                a = 0.002;
-                b = ( Math.PI / 2 ) - timer * 0.5;
-                c = timer * 0.1;
-        }else if(i == 1){
-                a = 0.005;
-                b = ( Math.PI / 2 ) + (timer * 0.5);
-                c = -(timer * 0.1) * 2;
-        }else if(i == 2){
-                a = 0.01;
-                b = ( Math.PI / 2 ) - timer * 0.5;
-                c = timer * 1;
-        }
-        // a = 0.002;
-        // b = (( Math.PI / 2 ) - timer * 0.5);
-        // c = timer * 0.1;
 
-        crystals[i].rotation.y -= a;
-        crystals[i].rotation.x = b;
-        crystals[i].rotation.y = b;
-        crystals[i].rotation.z = c;
-        controls.update();
-        groundMirror.render();
-        renderer.render(scene, camera);
-    }
+    crystals[0].rotation.x = 0.002;
+    crystals[0].rotation.y = ( Math.PI / 2 ) - (timer * 0.5);
+    crystals[0].rotation.z = timer * 0.1;
+
+    crystals[1].rotation.x = -0.005;
+    crystals[1].rotation.y = -(( Math.PI / 2 ) - (timer * 0.5));
+    crystals[1].rotation.z = -(timer * 0.1);
+
+    crystals[2].rotation.x = ( Math.PI / 2 ) - (timer * 0.5);
+    crystals[2].rotation.y = 0.002;
+    crystals[2].rotation.z = timer * 0.1;
+
+    controls.update();
+    groundMirror.render();
+    renderer.render(scene, camera);
 }
 
 function draw(){
@@ -146,9 +136,9 @@ function draw(){
             crystals[i].scale.x = 10;
             crystals[i].scale.y = 10;
             crystals[i].scale.z = 10;
-            crystals[i].position.x = i * 50;
-            crystals[i].position.y = i * 10;
-            crystals[i].position.z = i * 10;
+            crystals[i].position.x = 10;
+            crystals[i].position.y = 10;
+            crystals[i].position.z = 10;
             crystals[i].updateMatrix();
             scene.add(crystals[i]);
         }

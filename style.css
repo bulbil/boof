@@ -55,6 +55,8 @@ canvas {
 }
 
 #layer {
+
+    display: none;
     height: 750px;
     position: fixed;
     width: 100%;
