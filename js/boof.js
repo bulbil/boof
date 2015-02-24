@@ -64,7 +64,7 @@ function init(){
     // Orbit Controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set( 0, 10, 0);
-    controls.maxDistance = 100;
+    controls.maxDistance = 250;
     controls.minDistance = 0;
     controls.update();
     $('#container').append(renderer.domElement);
@@ -197,6 +197,16 @@ $(function(){
 
         $('body').animate({scrollTop: 0}, 1000);
         return false;
+    });
+
+    $('#footer a').on('click',function(){
+        
+        $('#top-container').toggle();
+        $('#bottom-container').toggle();
+        $('#gradient').toggle();
+        $('.stripes').toggle();
+        $('#floater').toggle();
+        
     });
     
 });
