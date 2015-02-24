@@ -8,57 +8,82 @@
 
  */
 
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
 body, html { 
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-/*::-webkit-scrollbar{
-    display: none;
-}
-*/
-.word{
-    display: inline-block;
-    font-family: Georgia, Garamond, "Times New Roman", serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 300px;
-    padding-left: -25px;
-    margin-top: 15px;
-    margin-left: .5em;
-    color: #fff;
-}
+#top-container{
 
-.word:nth-child(1) { margin-left: 0; }
-
-.footer a {
-    position: fixed;
-    opacity: 0;
-    bottom: 1em;
-    right: 1em;
-    height: 100px;
-    width: 100px;
-    z-index: 9 !important;
-    font-family: Georgia, Garamond, "Times New Roman", serif;
+    font-family: "Press Start 2P", Garamond, "Times New Roman", serif;
     font-style: italic;
-    color: #000;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 100px;
+    color: #fff;
+
+    width: 100%;
+    height: 100px;
+    opacity: .5;
+    background-image: repeating-linear-gradient(-30deg, #4551bd, #4551bd 25px, #8bd3a3 25px, #8bd3a3 35px);
+    z-index: 9 !important;
 }
 
-.footer a:hover {
-    color: #dfd;
+#bottom-container {
+
+    position: fixed;
+    bottom: -1;
+    height: 1000px;
+    width: 100%;
+    background: url('boof.png') repeat;
+    background-size: 500px 250px;
+    z-index: -1 !important;
 }
 
-#two .word:first-child { 
-    margin-top: 35%;
+#container, canvas{
+    position: fixed;
+    top: 100px;
+    z-index: 9 !important;
+}
+
+#gradient {
+    height: 750px;
+    position: fixed;
+    width: 100%;
+    opacity: .5;
+    background-image: -webkit-linear-gradient(180deg, #4551bd, #fff 25%);
+    background-image: -moz-linear-gradient(180deg, #4551bd, #fff 25%);
+    background-image: -o-linear-gradient(180deg, #4551bd, #fff 25%);
+    background-image: linear-gradient(180deg, #4551bd, #fff 25%);
+    z-index: 1 !important;
+}
+
+.stripes{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0 !important;
+    opacity: .7;
+}
+
+.stripes:nth-child(4){
+    background-image: repeating-linear-gradient(-115deg, transparent, transparent 100px, #E8E13C 100px, #E8E13C 110px);
+}
+
+.stripes:nth-child(5){
+    background-image: repeating-linear-gradient(115deg, transparent, transparent 100px, #77c1e8 100px, #77c1e8 110px);
+}
+
+.stripes:nth-child(6){
+    background-image: repeating-linear-gradient(-135deg, transparent, #8CC7C2 10px, #E8E13C 10px, #E8E13C 20px);
+    opacity: .7;
 }
 
 #container { 
-    /*display: block;*/
     z-index: 5 !important;
-    /*height: 1000px;*/
     opacity: .8;
 }
 
@@ -67,47 +92,6 @@ canvas {
     opacity: .5;
 }
 
-#one,
-#two,
-#three,
-#four {
-    width: 100%;    
-    height: 1000px;
-}
-
-#four { height: auto;}
-
-#five {
-    position: fixed;
-    top: 33%;   
-    left: 33%;  
-    width: 33%;
-    height: 33%;
-    z-index: 6 !important;
-}
-
-#one {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    opacity: .5;
-    z-index: -1 !important;
-}
-
-#one .word, .footer a {
-    -o-transition: opacity 3s;
-    -moz-transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    transition: opacity 3s;
-}
-
-#four .word span {
-    -o-transition: opacity 2s;
-    -moz-transition: opacity 2s;
-    -webkit-transition: opacity 2s;
-    transition: opacity 2s;
-}
 
 #one {
     background-image: -webkit-repeating-linear-gradient(-30deg, #8bd3a3, #8bd3a3 25px, #e965a1 25px, #e965a1 50px);
@@ -146,11 +130,4 @@ canvas {
     background-image: -o-repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
     background-image: repeating-linear-gradient(135deg, #8CC7C2 0px, #8CC7C2 2px, #E8E13C 2px, #E8E13C 4px);
     opacity: .7;
-}
-
-#container {
-    background-image: -webkit-linear-gradient(-90deg, #4551bd, #fff 25%);
-    background-image: -moz-linear-gradient(-90deg, #4551bd, #fff 25%);
-    background-image: -o-linear-gradient(-90deg, #4551bd, #fff 25%);
-    background-image: linear-gradient(-90deg, #4551bd, #fff 25%);
 }

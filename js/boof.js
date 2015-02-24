@@ -87,7 +87,7 @@ function update() {
     var a,b,c;
     for(var i in crystals){
         
-        if(i == 0){
+        if(i === 0){
                 a = 0.002;
                 b = ( Math.PI / 2 ) - timer * 0.5;
                 c = timer * 0.1;
@@ -158,6 +158,14 @@ function draw(){
 
 $(function(){
 
+    $('marquee').marquee('boof-marquee')
+        .mouseover(function(){
+            $(this).trigger('stop');
+        })
+        .mouseout(function(){
+            $(this).trigger('start');
+        });
+
     init();
     draw();
 
@@ -175,11 +183,6 @@ $(function(){
             }
         }
         
-        hideShowOnScroll($('#one .word#1'), 0.50, false);
-        hideShowOnScroll($('#one .word#2'), 0.35, false);
-        hideShowOnScroll($('#one .word#3'), 0.15, false);
-        hideShowOnScroll($('.footer a'), 1.5, true);
-
         var lineNum = Math.floor((Math.random() * 7) + 1);
         var wordNum = Math.floor((Math.random() * 3) + 1);
         var word = $('#four .word#' + lineNum + ' span:nth-child(' + wordNum + ')');
@@ -197,3 +200,4 @@ $(function(){
     });
     
 });
+
