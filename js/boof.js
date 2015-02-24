@@ -13,6 +13,7 @@
 var WIDTH = window.innerWidth;
 var HEIGHT = window.innerHeight;
 var aspect = WIDTH/HEIGHT;
+var isQuietView = false;
 
 // camera
 var VIEW_ANGLE = 45;
@@ -90,19 +91,19 @@ function update() {
     requestAnimationFrame( update );
 
     var timer = Date.now() * 0.001;
-    var a,b,c;
-
+    var timeIncrement = ( WIDTH < 481 || isQuietView === true ) ? 0.3 : 0.9;
+    console.log(timeIncrement);
     crystals[0].rotation.x = 0.002;
-    crystals[0].rotation.y = ( Math.PI / 2 ) - (timer * 0.5);
-    crystals[0].rotation.z = timer * 0.1;
+    crystals[0].rotation.y = ( Math.PI / 2 ) - (timer * timeIncrement);
+    crystals[0].rotation.z = timer * timeIncrement;
 
     crystals[1].rotation.x = -0.005;
-    crystals[1].rotation.y = -(( Math.PI / 2 ) - (timer * 0.5));
-    crystals[1].rotation.z = -(timer * 0.1);
+    crystals[1].rotation.y = -(( Math.PI / 2 ) - (timer * timeIncrement));
+    crystals[1].rotation.z = -(timer * timeIncrement);
 
-    crystals[2].rotation.x = ( Math.PI / 2 ) - (timer * 0.5);
+    crystals[2].rotation.x = ( Math.PI / 2 ) - (timer * timeIncrement);
     crystals[2].rotation.y = 0.002;
-    crystals[2].rotation.z = timer * 0.1;
+    crystals[2].rotation.z = timer * timeIncrement;
 
     controls.update();
     groundMirror.render();
@@ -202,6 +203,9 @@ $(function(){
         $('.stripes').toggle();
         $('#floater').toggle();
         $('#container').toggleClass('quiet-view');
+
+        isQuietView = !isQuietView;
+        console.log(isQuietView);
         
     });
     
